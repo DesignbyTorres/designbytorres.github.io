@@ -1,0 +1,52 @@
+* {
+ box-sizing: border-box;   
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+#instructions {
+    padding: 0 5%;
+}
+
+
+
+
+#myPick {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px 0;
+}
+
+
+
+#rock,
+#paper,
+#scissors {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: aliceblue;
+    border: 1px solid black;
+    padding: ;
+    border-radius: 10px;
+    aspect-ratio: 1/1;
+    width: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+  
+  
+    
+}
