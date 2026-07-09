@@ -1,0 +1,43 @@
+/* got this from https://stackoverflow.com/questions/29307971/css-grid-of-squares-with-flexbox
+it makes the height follow the width... should be great for the mpc buttons!!!      */
+
+.flex-container {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap; 
+}
+
+.flex-cell {
+    /* this next line determines how many squares are in a row.. 25% is 4 20% is 5 etc etc */
+  flex: 0 0 25%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.flex-cell:before {
+  content: '';
+  display: table;
+  padding-top: 100%;
+}
+
+.inset {
+    display: flex;
+    flex: 1;
+    border: 5px outset lightgrey;
+  
+}
+
+.flex-item {
+  flex-grow: 1;
+  
+  background: tomato;
+  color: white;
+  border: 5px outset darkorange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

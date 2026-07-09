@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="mpc2_css.css">
+	
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	
+	<title></title>
+	
+	</head>
+
+	
+	<body>
+	
+       
+       
+        
+        
+       
+        <div class="selector">
+            <div class="prev" onclick="lefty()"><p>PREV</p></div>
+            <div id="selectview" class="selectview">Kit One</div>
+            <div class="next" onclick="righty()">NEXT</div>
+        </div>
+        
+        <div class="samplers">
+            <div class="inset">
+                <div class="outset" onclick="playDbt()">
+                </div>
+            </div>
+            <div class="inset">
+                <div class="outset" onclick="playDbt2()">
+                </div>
+            </div>
+            <div class="inset">
+                <div class="outset" onclick="playDbt3()">
+                </div>
+            </div>
+            <div class="inset">
+                <div class="outset" onclick="playDbt4()">
+                </div>
+            </div>
+            <div class="inset">
+                <div class="outset" onclick="playDbt5()">
+                </div>
+            </div>
+            <div class="inset">
+                <div class="outset" onclick="playDbt6()">
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="square">
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playOne()">
+                </div>
+                <p>Lilsq01</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playTwo()">
+                </div>
+                <p>Lilsq02</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playThree()">
+                </div>
+                <p>Lilsq03</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playFour()">
+                </div>
+                <p>Lilsq04</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playFive()">
+                </div>
+                <p>Lilsq05</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playSix()">
+                </div>
+                <p>Lilsq06</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playSeven()">
+                </div>
+                <p>Lilsq07</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playEight()">
+                </div> 
+                <p>Lilsq08</p>
+            </div>
+             <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playNine()">
+                </div>
+                <p>Lilsq09</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playTen()">
+                </div>
+                <p>Lilsq10</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playElevn()">
+                </div>
+                <p>Lilsq11</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playTwelv()">
+                </div> 
+                <p>Lilsq12</p>
+            </div>
+             <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playThirt()">
+                </div>
+                <p>Lilsq13</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playFourt()">
+                </div>
+                <p>Lilsq14</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playFift()">
+                </div>
+                <p>Lilsq15</p>
+            </div>
+            <div class="rectangle">
+                <div class="lilsquare lilsquareOne" onclick="playSixt()">
+                </div> 
+                <p>Lilsq16</p>
+            </div>
+            
+        </div>
+        <div class="dbtblock">
+            <h2 class="dbt">DBT.5000.V</h2>
+            <button onclick="stopBtn()" class="stopbtn">MUTE</button>
+        </div>
+        
+        
+        
+        
+       
+       
+        
+        
+        
+        <script>
+            
+            /*Original audio play js script, found online.
+            function playAudio(url) {
+  var a = new Audio(url);
+  a.play();
+} 
+            */
+            // New addition to the original audio play script, more realistic delay
+            function playAudio(url) {
+  var a = new Audio(url);
+                setTimeout(function(){ a.play(); }, 10);
+            }
+            //End of addition to audio play
+            
+            
+             //The left button for selecting kits, also updates and removes a class and adds html too
+            function lefty() {
+                var x = document.getElementById("selectview");
+                var y = document.getElementsByClassName("lilsquare");
+                var i;
+                
+                if(x.className === "selectview") {
+                    x.className = "selectviewthree";
+                    x.innerHTML = "Kit Three";
+                    for (i = 0; i < y.length; i++) {
+                        y[i].classList.remove("lilsquareOne");
+                        y[i].className += " lilsquareThree";
+                    }
+                }
+                else
+                if(x.className === "selectviewthree") {
+                    x.className = "selectviewtwo";
+                    x.innerHTML = "Kit Two";
+                    for (i = 0; i < y.length; i++) {
+                    y[i].classList.remove("lilsquareThree");
+                        y[i].className += " lilsquareTwo";
+                    }
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    x.className = "selectview";
+                    x.innerHTML = "Kit One";
+                    for (i = 0; i < y.length; i++) {
+                    y[i].classList.remove("lilsquareTwo");
+                        y[i].className += " lilsquareOne";
+                    }
+                }
+            }
+            //The right button for selecting kits, also updates and removes a class and adds html too
+            function righty() {
+                var x = document.getElementById("selectview");
+                var y = document.getElementsByClassName("lilsquare");
+                var i;
+                if(x.className === "selectview") {
+                    x.className = "selectviewtwo";
+                    x.innerHTML = "Kit Two";
+                    for (i = 0; i < y.length; i++) {
+                    y[i].classList.remove("lilsquareOne");
+                        y[i].className += " lilsquareTwo";
+                    }
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    x.className = "selectviewthree";
+                    x.innerHTML = "Kit Three";
+                    for (i = 0; i < y.length; i++) {
+                    y[i].classList.remove("lilsquareTwo");
+                        y[i].className += " lilsquareThree";
+                    }
+                }
+                else
+                if(x.className === "selectviewthree") {
+                    x.className = "selectview";
+                    x.innerHTML = "Kit One";
+                    for (i = 0; i < y.length; i++) {
+                    y[i].classList.remove("lilsquareThree");
+                        y[i].className += " lilsquareOne";
+                    }
+                }
+            }
+            
+            
+           //  This playOne() will be a function for each beatpad (1-16).. the if statements are each sound available. 
+            function playOne() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/kicks/candy.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/kicks/wake.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/kicks/kick1.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+            
+            function playTwo() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/kicks/congratulate.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/kicks/mojave.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/kicks/kick2.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+            
+            function playThree() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/kicks/psychotic.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/kicks/houston.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/kicks/kick9f.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+            
+            function playFour() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/kicks/trapstar.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/kicks/sicko.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/kicks/kick7.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+            
+            function playFive() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/snares/congratulate.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/snares/mode.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/snares/snare1.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+         
+            function playSix() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/snares/psychotic.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/snares/skeletons.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/snares/snare9d.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+            
+            function playSeven() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/hihats/psychotic.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/hihats/bystander.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/hihatsclosed/hihat3.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+           
+            function playEight() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/hihats/iverson.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/hihats/talk2.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/hihatsopen/hihat2.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+            
+            function playNine() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/percussion/931.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/percussion/skeleton.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/percussion/percussion5.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+            
+            function playTen() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    var a = new Audio('drums/posty/percussion/iverson.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    var a = new Audio('drums/astro/percussion/wake.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   var a = new Audio('drums/lofi/percussion/percussion6.wav');
+                setTimeout(function(){ a.play(); }, 10);
+                }
+            }
+            
+            function playElevn() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    traps.pause();
+                    congrats.pause();
+                    congrats.currentTime = 0;
+                setTimeout(function(){ congrats.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    astro1.pause();
+                    astro4.pause();
+                    astro1.currentTime = 0;
+                setTimeout(function(){ astro1.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   astro1.pause();
+                    astro4.pause();
+                    astro1.currentTime = 0;
+                setTimeout(function(){ astro1.play(); }, 10);
+                }
+            }
+            
+            function playTwelv() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    traps.pause();
+                    congrats.pause();
+                    traps.currentTime = 0;
+                setTimeout(function(){ traps.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    astro1.pause();
+                    astro4.pause();
+                    astro4.currentTime = 0;
+                setTimeout(function(){ astro4.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   astro1.pause();
+                    astro4.pause();
+                    astro1.currentTime = 0;
+                setTimeout(function(){ astro1.play(); }, 10);
+                }
+            }
+            
+            function playThirt() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    loop1.pause();
+                    loop3.pause();
+                    loop8.pause();
+                    loop9.pause();
+                    loop1.currentTime = 0;
+                    setTimeout(function(){ loop1.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    astloop1.pause();
+                    astloop4.pause();
+                    astloop8.pause();
+                    astloop9.pause();
+                    astloop1.currentTime = 0;
+                setTimeout(function(){ astloop1.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   lofiloop1.pause();
+                    lofiloop2a.pause();
+                    lofiloop7a.pause();
+                    lofiloop5.pause();
+                    lofiloop1.currentTime = 0;
+                setTimeout(function(){ lofiloop1.play(); }, 10);
+                }
+            }
+            
+            function playFourt() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    loop1.pause();
+                    loop3.pause();
+                    loop8.pause();
+                    loop9.pause();
+                    loop9.currentTime = 0;
+                    setTimeout(function(){ loop9.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    astloop1.pause();
+                    astloop4.pause();
+                    astloop8.pause();
+                    astloop9.pause();
+                    astloop4.currentTime = 0;
+                setTimeout(function(){ astloop4.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   lofiloop1.pause();
+                    lofiloop2a.pause();
+                    lofiloop7a.pause();
+                    lofiloop5.pause();
+                    lofiloop2a.currentTime = 0;
+                setTimeout(function(){ lofiloop2a.play(); }, 10);
+                }
+            }
+            
+            function playFift() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    loop1.pause();
+                    loop3.pause();
+                    loop8.pause();
+                    loop9.pause();
+                    loop3.currentTime = 0;
+                    setTimeout(function(){ loop3.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    astloop1.pause();
+                    astloop4.pause();
+                    astloop8.pause();
+                    astloop9.pause();
+                    astloop8.currentTime = 0;
+                setTimeout(function(){ astloop8.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   lofiloop1.pause();
+                    lofiloop2a.pause();
+                    lofiloop3.pause();
+                    lofiloop5.pause();
+                    lofiloop7a.currentTime = 0;
+                setTimeout(function(){ lofiloop7a.play(); }, 10);
+                }
+            }
+            
+            function playSixt() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    loop1.pause();
+                    loop3.pause();
+                    loop8.pause();
+                    loop9.pause();
+                    loop8.currentTime = 0;
+                    setTimeout(function(){ loop8.play(); }, 10);
+                    
+                setTimeout(function(){ a.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    astloop1.pause();
+                    astloop4.pause();
+                    astloop8.pause();
+                    astloop9.pause();
+                    astloop9.currentTime = 0;
+                setTimeout(function(){ astloop9.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                    lofiloop1.pause();
+                    lofiloop2a.pause();
+                    lofiloop7a.pause();
+                    lofiloop5.pause();
+                    lofiloop5.currentTime = 0;
+                setTimeout(function(){ lofiloop5.play(); }, 10);
+                }
+            }
+            
+            var loop1 = new Audio('drums/posty/melodyloops/loop1.wav');
+            var loop9 = new Audio('drums/posty/melodyloops/loop9.wav');
+            var loop3 = new Audio('drums/posty/melodyloops/loop3.wav');
+            var loop8 = new Audio('drums/posty/melodyloops/loop8.wav');
+            var traps = new Audio('drums/posty/808s/trapstar.wav');
+            var congrats = new Audio('drums/posty/808s/congratulate.wav');
+            var astro1 = new Audio('drums/astro/808s/butterfly.wav');
+            var astro2 = new Audio('drums/astro/808s/gazing.wav');
+            var astro3 = new Audio('drums/astro/808s/mojave.wav');
+            var astro4 = new Audio('drums/astro/808s/roundabout.wav');
+            var astloop1 = new Audio('drums/astro/melodyloops/loop1.wav');
+            var astloop4 = new Audio('drums/astro/melodyloops/loop4.wav');
+            var astloop8 = new Audio('drums/astro/melodyloops/loop8.wav');
+            var astloop9 = new Audio('drums/astro/melodyloops/loop9.wav');
+            var lofiloop1 = new Audio('drums/lofi/melodyloops/loop1.wav');
+            var lofiloop2a = new Audio('drums/lofi/melodyloops/loop2a.wav');
+            var lofiloop3 = new Audio('drums/lofi/melodyloops/loop3.wav');
+            var lofiloop5 = new Audio('drums/lofi/melodyloops/loop5.wav');
+            var lofiloop7a = new Audio('drums/lofi/melodyloops/loop7a.wav');
+            
+            var aasd = new Audio('corridor2.wav');
+            var failure = new Audio('failure.wav');
+            var mitch = new Audio('mitchpls.wav');
+            var chant = new Audio('chant.wav');
+            var fx1 = new Audio('drums/astro/fx/fx1.wav');
+            var fx2 = new Audio('drums/astro/fx/fx2.wav');
+            var fx3 = new Audio('drums/astro/fx/fx3.wav');
+            var fx4 = new Audio('drums/astro/fx/fx4.wav');
+            var fx5 = new Audio('drums/astro/fx/fx5.wav');
+            var fx6 = new Audio('drums/astro/fx/fx6.wav');
+            var fx7 = new Audio('drums/astro/fx/fx7.wav');
+            var fx8 = new Audio('drums/astro/fx/fx8.wav');
+            var fx9 = new Audio('drums/astro/fx/fx9.wav');
+            
+            var my = new Audio('drums/bigbrain/my.wav');
+            var brain = new Audio('drums/bigbrain/brain.wav');
+            var brainis = new Audio('drums/bigbrain/is.wav');
+            var bigger = new Audio('drums/bigbrain/bigger.wav');
+            var than = new Audio('drums/bigbrain/than.wav');
+            var yours = new Audio('drums/bigbrain/yours.wav');
+            
+             function playDbt() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    my.currentTime = 0;
+                    setTimeout(function(){ my.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    my.currentTime = 0;
+                    setTimeout(function(){ my.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    my.currentTime = 0;
+                    setTimeout(function(){ my.play(); }, 10);
+                }
+            }
+            
+            function playDbt2() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    brain.currentTime = 0;
+                    setTimeout(function(){ brain.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    brain.currentTime = 0;
+                    setTimeout(function(){ brain.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    brain.currentTime = 0;
+                    setTimeout(function(){ brain.play(); }, 10);
+                }
+            }
+            
+             function playDbt3() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    brainis.currentTime = 0;
+                    setTimeout(function(){ brainis.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    brainis.currentTime = 0;
+                    setTimeout(function(){ brainis.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    brainis.currentTime = 0;
+                    setTimeout(function(){ brainis.play(); }, 10);
+                }
+            }
+            
+            function playDbt4() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    bigger.currentTime = 0;
+                    setTimeout(function(){ bigger.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    bigger.currentTime = 0;
+                    setTimeout(function(){ bigger.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    bigger.currentTime = 0;
+                    setTimeout(function(){ bigger.play(); }, 10);
+                }
+            }
+            
+            function playDbt5() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    than.currentTime = 0;
+                    setTimeout(function(){ than.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    than.currentTime = 0;
+                    setTimeout(function(){ than.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                   my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    than.currentTime = 0;
+                    setTimeout(function(){ than.play(); }, 10);
+                }
+            }
+            
+            function playDbt6() {
+                var x = document.getElementById("selectview");
+                
+                if(x.className === "selectview") {
+                    
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    yours.currentTime = 0;
+                    setTimeout(function(){ yours.play(); }, 10);
+                }
+                else
+                if(x.className === "selectviewtwo") {
+                     my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    yours.currentTime = 0;
+                    setTimeout(function(){ yours.play(); }, 10);
+                } 
+                else
+                if(x.className === "selectviewthree") {
+                    my.pause();
+                    brain.pause();
+                    brainis.pause();
+                    bigger.pause();
+                    than.pause();
+                    yours.pause();
+                    yours.currentTime = 0;
+                    setTimeout(function(){ yours.play(); }, 10);
+                }
+            }
+            
+            
+            function stopBtn() {
+               loop1.pause();
+               loop3.pause();
+               loop8.pause();
+               loop9.pause();
+                
+                astloop1.pause();
+                    astloop4.pause();
+                    astloop8.pause();
+                    astloop9.pause();
+                astro1.pause();
+                    astro4.pause();
+                aasd.pause();
+                failure.pause();
+                    mitch.pause();
+                    chant.pause();
+                    fx6.pause();
+                
+                lofiloop1.pause();
+                    lofiloop2a.pause();
+                    lofiloop7a.pause();
+                    lofiloop5.pause();
+            };
+            
+            
+        /*    function myFunction() {
+  var x = document.getElementById("myDIV");
+  
+  if (x.className === "mystyle") { 
+    x.className = "thirty";    
+  }
+}
+            */
+            
+        </script>
+        
+        
+	</body>
+
+</html>

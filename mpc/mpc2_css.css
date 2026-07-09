@@ -1,0 +1,320 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.mpcbody {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    background-color: aliceblue;
+    border: 5px solid black;
+    justify-content: center;
+    
+}
+
+
+.mpcbtn {
+    height: 50px;
+    width: 50px;
+    background-color: lightblue;
+    border: 1px solid darkblue;
+    margin: 20px;
+}
+
+.mpcbtn button,
+.twoser button,
+.threeser button {
+    width: 100%;
+    height: 100%;
+}
+
+.mpcbtntwo {
+    height: 50px;
+    width: 50px;
+    background-color: dimgrey;
+    border: 1px solid yellow;
+    margin: 20px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.mpcbtntwo:active {
+    position: relative;
+    top: .4px;
+}
+
+.twoser {
+    border: 1px solid aquamarine;
+    height: 50px;
+    width: 50px;
+    margin: 20px;
+}
+
+.threeser {
+    border: 1px solid yellow;
+    height: 50px;
+    width: 50px;
+    margin: 20px;
+}
+
+
+
+
+
+
+.imager {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
+
+
+.soundtwo {
+    background-color: aquamarine;
+    color: white;
+}
+
+
+.mainBtnclass {
+    background-color: yellow;
+}
+
+.secondBtn {
+    background-color: green;
+}
+
+.thirdBtn {
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+
+.selector {
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(200,200,200,0.5);
+}
+
+.prev,
+.next {
+    flex: 1;
+    background-color: gainsboro;
+    padding: 7px 0px ;
+    border: 3px outset lightgrey;
+    border-radius: 2px;
+    font-size: 8px;
+    align-self: center;
+    font-family: sans-serif;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.prev:active,
+.next:active {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.prev p {
+    align-self: center;
+}
+
+#selectview {
+    flex: 3;
+    color: lightskyblue;
+    background-color: midnightblue;
+    border: 3px inset lightgrey;
+    padding: 2px 30px;
+    font-family: sans-serif;
+    margin: 0 10px;
+    border-radius: 2px;
+}
+
+/* used only as markers now for js
+
+.selectview {
+    flex: 3;
+    color: white;
+    background-color: darkgrey;
+    padding: 2px 30px;
+    font-family: sans-serif;
+    margin: 0 10px;
+    border-radius: 2px;
+}
+
+.selectviewtwo {
+    flex: 3;
+    color: white;
+    background-color: gray;
+    padding: 2px 30px;
+    font-family: sans-serif;
+    margin: 0 10px;
+    border-radius: 2px;
+}
+
+.selectviewthree {
+    flex: 3;
+    color: white;
+    background-color: dimgrey;
+    padding: 2px 30px;
+    font-family: sans-serif;
+    margin: 0 10px;
+    border-radius: 2px;
+}
+
+*/
+
+.samplers {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background-color: rgba(225,225,225,1);
+}
+
+.inset {
+    flex: 1;
+    margin: 0 5px;
+    border: 3px inset lightblue;
+}
+
+.outset {
+    height: 30px;
+    background-color: aqua;
+    border: 3px outset grey;
+    
+}
+
+.outset:active {
+    background-color: aquamarine;
+    border: 3px outset grey;
+}
+
+
+.square {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(225,225,225,1);
+    justify-content: center;
+    padding: 10px 10px;
+    
+}
+
+
+
+.rectangle {
+    border: 1px solid red;
+    padding: 10px 10px 0px 10px;
+    margin: 8px;
+}
+
+.rectangle p {
+    font-size: 8px;
+    text-transform: uppercase;
+    text-align: right;
+    color: red;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 1px 0;
+}
+
+.lilsquare {
+    border: 3px outset rgba(125,125,125,1);
+    border-radius: 2px;
+    height: 75px;
+    width: 75px;
+    /*Cool trick here... if the box shadow is 1px low on initial item, it can be moved up 1px from bottom relative
+    as a button and it doesnt look like its moving. If you change the box shadow to 0px low, it looks like shit!.. so 
+    you can see the difference */
+    box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.4);
+}
+
+.lilsquare:active {
+    
+    position: relative;
+    bottom: 1px;
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.3);
+    background-color: rgba(150,150,150,1);
+    
+}
+
+.lilsquareTwo:active {
+    
+    position: relative;
+    bottom: 1px;
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.3);
+    background-color: rgba(100,100,100,1);
+    
+}
+
+.lilsquareThree:active {
+    
+    position: relative;
+    bottom: 1px;
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.3);
+    background-color: rgba(75,75,75,1);
+    
+}
+
+.lilsquareOne {
+    background-color: darkgray;
+}
+
+.lilsquareTwo {
+    background-color: gray;
+}
+
+.lilsquareThree {
+    background-color: dimgray;
+}
+
+.dbtblock {
+    display: flex;
+    padding: 10px 8%;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    
+    background-color: rgba(175,175,175,0.5);
+    background-image: linear-gradient(rgba(210,210,210,1), rgba(150,150,150,1));
+}
+
+.dbt {
+
+    color: red;
+}
+
+
+.stopbtn {
+    background-color: cornflowerblue;
+    padding: 5px 35px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-size: 12px;
+    margin-left: auto;
+    color: steelblue;
+}
+
+
+@media only screen and (max-width: 768px)
+{
+	
+}
+
+
+@media only screen and (max-width: 600px)
+{
+	
+}
