@@ -1,0 +1,121 @@
+* {
+ box-sizing: border-box;   
+    text-align: center;
+}
+
+#imgArea {
+    text-align: center;
+}
+
+#lottoImg {
+    height: 250px;
+}
+
+
+#titleArea {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0px;
+}
+
+
+
+
+#numbersArea {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+    gap: 2%;
+}
+
+#numbersArea div {
+    background-image: url(ball.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*    background-color: beige;*/
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    font-size: 1.5em;
+    font-family: sans-serif;
+    
+}
+
+
+@keyframes rotateBall {
+    
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.myStyleZero {
+    animation-name: rotateBall;
+    animation-duration: 250ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 4;
+}
+.myStyleOne {
+    animation-name: rotateBall;
+    animation-duration: 250ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 8;
+}
+.myStyleTwo {
+    animation-name: rotateBall;
+    animation-duration: 250ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 12;
+}
+.myStyleThree {
+    animation-name: rotateBall;
+    animation-duration: 250ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 16;
+}
+.myStyleFour {
+    animation-name: rotateBall;
+    animation-duration: 250ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 20;
+}
+.myStyleFive {
+    animation-name: rotateBall;
+    animation-duration: 250ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 24;
+}
+
+
+
+
+#btnArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#btn {
+    text-align: center;
+    padding: 6px 40px;
+    border-radius: 6px;
+    background-color: cadetblue;
+    color: whitesmoke
+}
+
+@media screen and (max-width: 600px) {
+  
+    #numbersArea div {
+    height: 40px;
+    width: 40px;
+    
+}
+    
+}
